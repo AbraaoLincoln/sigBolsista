@@ -2,8 +2,8 @@ async function registrarPontoCompletoNoBD(){
     let registroPonto = {
         cpf: document.getElementById('cpfBolPonto').value,
         data: formatDateMysql(document.getElementById('diabolPonto').value),
-        horaEntrada: document.getElementById('horaIncBolPonto').value,
-        horaSaida: document.getElementById('horaSaidaBolPonto').value
+        horaEntrada: document.getElementById('horaIncBolPonto').value.replace(':', ''),
+        horaSaida: document.getElementById('horaSaidaBolPonto').value.replace(':', '')
     }
 
     try {
