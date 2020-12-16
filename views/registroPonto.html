@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Ponto</title>
+    <link rel="stylesheet" href="../registrarPonto/css/style.css">
+    <script src="../registrarPonto/js/functions.js"></script>
+</head>
+<body>
+    <div class="conteudo">
+        <div class="horario">
+            <span id="hora">00</span>
+            <span class="spanDoisPonto">:</span>
+            <span id="minutos">00</span>
+            <span class="spanDoisPonto">:</span>
+            <span id=segundos>00</span>
+        </div>
+        <div class="login">
+            <h3>Registrar Ponto</h3>
+            <form action="" method="POST" class="loginForm">
+                <input type="text" placeholder="CPF" class="inputButton" id="cpf">
+                <input type="password" placeholder="Senha" class="inputButton">
+                <button type="button" class="inputButton" onclick="registrarPontoNoBD()">Registrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

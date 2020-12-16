@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../admin/css/style.css">
+    <link rel="stylesheet" href="../all.css">
+    <script src="../admin/js/functions.js"></script>
+    <script src="../admin/js/pageManager.js"></script>
+    <script src="../admin/js/table.js"></script>
+    <script src="../admin/js/formsManager.js"></script>
+    <script src="../admin/js/dbOperations.js"></script>
+    <script src="../admin/js/util.js"></script>
+</head>
+<body>
+    <header>
+        <h3 onclick="loadMenu()">SigBolsista</h3>
+        <span onclick="logout()"><i class="fas fa-sign-out-alt"></i></span>
+    </header>
+    <div class="menu" id="backMenu">
+        <div class="row" id="row1">
+            <div class="opt" onclick="carregarBolsista()">
+                <i class="fas fa-users fa-2x"></i>
+                <p>Gerenciar</p>
+                <p>Bolsistas</p>
+            </div>
+            <div class="opt" onclick="carregarRegistroPonto()">
+                <i class="fas fa-pen-alt fa-2x"></i>
+                <p>Gerenciar</p>
+                <p>Ponto</p>
+            </div>
+            <div class="opt" onclick="carregarJustificativas()">
+                <i class="fas fa-clipboard-list fa-2x"></i>
+                <p>Gerenciar</p>
+                <p>Justificativas</p>
+            </div>
+            <!-- <div class="opt">
+                <i class="fas fa-desktop fa-2x"></i>
+                <p>Gerenciar</p>
+                <p>Maquinas</p>
+            </div> -->
+        </div>
+        <div class="row" id="row2">
+            <div class="opt" onclick="carregarMaquinas()">
+                <i class="fas fa-desktop fa-2x"></i>
+                <p>Gerenciar</p>
+                <p>Maquinas</p>
+            </div>
+            <div class="opt" onclick="showSetorMenu()">
+                <i class="fas fa-vector-square fa-2x"></i>
+                <p>Gerenciar</p>
+                <p>Setores</p>
+            </div>
+            <div class="opt" onclick="showUnidadeMenu()">
+                <i class="fas fa-building fa-2x"></i>
+                <p>Gerenciar</p>
+                <p>Unidades</p>
+            </div>
+            <!-- <div class="opt opt-NotAvalible">7</div> -->
+            <!-- <div class="opt opt-NotAvalible">8</div> -->
+        </div>
+        <div class="row subRow" id="row3">
+            <div class="opt opt1" onclick="carregarGerenteSetor()">
+                <i class="fas fa-users fa-2x"></i>
+                <p>Gerentes</p>
+            </div>
+            <div class="opt opt1" onclick="carregarSetores()">
+                <i class="fas fa-vector-square fa-2x"></i>
+                <p>Setores</p>
+            </div>
+        </div>
+        <div class="row subRow" id="row4">
+            <div class="opt opt1" onclick="carregarGerenteUnidade()">
+                <i class="fas fa-users fa-2x"></i>
+                <p>Gerentes</p>
+            </div>
+            <div class="opt opt1" onclick="carregarUnidades()">
+                <i class="fas fa-building fa-2x"></i>
+                <p>Unidades</p>
+            </div>
+        </div>
+    </div>
+    <div class="tableBack" id="tBack">
+        <div class="action">
+            <div class="searchName">
+                <input type="text" name="" id="nomePesquisa" placeholder="digite um nome">
+                <span onclick="searchName()"><i class="fas fa-search"></i></span>
+            </div>
+            <div class="buttons">
+                <button type="button" onclick="showAddForm()">Adicionar</button>
+                <button type="button" onclick="deleteAll()" >Deletar Marcados</button>
+            </div>
+        </div>
+        <table class="tableBolsista" id="tBolsista">
+
+        </table>
+    </div>
+    <div class="backForms" id="bForms" style="display: none;" onclick="hideBform(event)">
+        <div class="formAddBolsista" id="addForm">
+            <h3>Adicionar Bolsista</h3>
+            <input type="text" id="cpfBol" placeholder="cpf">
+            <input type="text" id="nomebol" placeholder="nome">
+            <input type="text" id="dataIncBol" placeholder="data de inicio">
+            <input type="text" id="cargaHBol" placeholder="carga horaria">
+            <input type="text" id="setorBol" placeholder="setor bolsista">
+            <input type="password" id="passBol" placeholder="senha">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="updateForm">
+            <h3>Atualizar Dados do Bolsista</h3>
+            <input type="text" id="updateCpfBol" placeholder="cpf">
+            <input type="text" id="updateNomebol" placeholder="nome">
+            <input type="text" id="updateDataIncBol" placeholder="data de inicio">
+            <input type="text" id="updateCargaHBol" placeholder="carga horaria">
+            <input type="text" id="updateSetorBol" placeholder="setor do bolsista">
+            <input type="password" id="updatePassBol" placeholder="nova senha">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="addFormPonto">
+            <h3>Adicionar Registro de Ponto</h3>
+            <input type="text" id="cpfBolPonto" placeholder="cpf">
+            <input type="text" id="diabolPonto" placeholder="dia">
+            <input type="text" id="horaIncBolPonto" placeholder="hora de inicio">
+            <input type="text" id="horaSaidaBolPonto" placeholder="hora de saida">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="updateFormPonto">
+            <h3>Atualizar Registro de Ponto</h3>
+            <input type="text" id="updateCpfBolPonto" placeholder="cpf">
+            <input type="text" name="data" id="updateNomebolPonto" placeholder="dia 00/00/00">
+            <input type="text" name="hora" id="updateHoraIncBolPonto" placeholder="hora de inicio">
+            <input type="text" name="hora" id="updateHoraSaidaBolPonto" placeholder="hora de saida">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="addFormJust">
+            <h3>Adicionar Justificativa</h3>
+            <input type="text" id="idJust" placeholder="id">
+            <input type="text" id="cpfJust" placeholder="cpf">
+            <input type="text" id="descrJust" placeholder="descricao">
+            <input type="text" id="diaJust" placeholder="dias 01/01/2020, 02/01/2020">
+            <input type="text" id="estadoJust" placeholder="estado">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="updateFormJust">
+            <h3>Atualizar Justificativa</h3>
+            <input type="text" id="updateIdJust" placeholder="id">
+            <input type="text" id="updateCpfJust" placeholder="cpf">
+            <input type="text" id="updateDescrJust" placeholder="descricao">
+            <input type="text" id="updateDiaJust" placeholder="dias 01/01/2020, 02/01/2020">
+            <input type="text" id="updateEstadoJust" placeholder="estado">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="addFormGerenteSetor">
+            <h3>Adicionar Gerente de Setor</h3>
+            <input type="text" id="cpfGerenteSetor" placeholder="cpf">
+            <input type="text" id="nomeGerenteSetor" placeholder="nome">
+            <input type="text" id="setorGerencia" placeholder="Setor">
+            <input type="password" id="passGrenteSetor" placeholder="senha">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="updateFormGerenteSetor">
+            <h3>Atualizar Dados do Gerente Setor</h3>
+            <input type="text" id="updateCpfGerenteSetor" placeholder="cpf">
+            <input type="text" id="updateNomeGerenteSetor" placeholder="nome">
+            <input type="text" id="updateSetorGerencia" placeholder="setor gerencia">
+            <input type="password" id="updatePassGerenteSetor" placeholder="nova senha">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="addFormGerenteUnidade">
+            <h3>Adicionar Gerente de Unidade</h3>
+            <input type="text" id="cpfGerenteUnidade" placeholder="cpf">
+            <input type="text" id="nomeGerenteUnidade" placeholder="nome">
+            <input type="text" id="unidadeGerencia" placeholder="unidade">
+            <input type="password" id="passGrenteUnidade" placeholder="senha">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista" id="updateFormGerenteUnidade">
+            <h3>Atualizar Dados do Gerente Unidade</h3>
+            <input type="text" id="updateCpfGerenteUnidade" placeholder="cpf">
+            <input type="text" id="updateNomeGerenteUnidade" placeholder="nome">
+            <input type="text" id="updateUnidadeGerencia" placeholder="unidade gerencia">
+            <input type="password" id="updatePassGerenteUnidade" placeholder="nova senha">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista smallForm" id="addFormMaquina">
+            <h3>Adicionar Maquina de Ponto</h3>
+            <input type="text" id="ipMaquina" placeholder="ip">
+            <input type="text" id="setorMaquina" placeholder="setor">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista smallForm" id="updateFormMaquina">
+            <h3>Atualizar Dados da Maquina de Ponto</h3>
+            <input type="text" id="updateIpMaquina" placeholder="ip">
+            <input type="text" id="updateSetorMaquina" placeholder="setor">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista smallForm" id="addFormSetor">
+            <h3>Adicionar Setor</h3>
+            <input type="text" id="idSetor" placeholder="nome do setor" style="display: none;">
+            <input type="text" id="nomeSetor" placeholder="nome do setor">
+            <input type="text" id="unidadeSetor" placeholder="unidade do setor">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista smallForm" id="updateFormSetor">
+            <h3>Atualizar Setor</h3>
+            <input type="text" id="updateIdSetor" placeholder="nome do setor" style="display: none;">
+            <input type="text" id="updateNomeSetor" placeholder="nome do setor">
+            <input type="text" id="updateSetorUnidade" placeholder="unidade do setor">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista smallForm2" id="addFormUnidade">
+            <h3>Adicionar Unidade</h3>
+            <input type="text" id="nomeUnidade" placeholder="nome da unidade">
+            <button type="button" onclick="add()">Adicionar</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+        <div class="formAddBolsista smallForm2" id="updateFormUnidade">
+            <h3>Atualizar Unidade</h3>
+            <input type="text" id="updateNomeUnidade" placeholder="nome da unidade">
+            <button type="button" onclick="update()">Salvar Alterações</button>
+            <button type="button" onclick="hideForm(event)">Cancelar</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* background-color: #fff8f0; */
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+}
+
+.horario{
+    display: flex;
+    /* justify-content: center; */
+    text-align: center;
+    align-items: center;
+    height: 10%;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 10px;
+}
+
+#hora, #minutos, #segundos{
+    width: 30%;
+    transform: scale(1.5);
+}
+
+.spanDoisPonto{
+    /* width: 5%; */
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    box-shadow: 1px 1px 3px black;
+    height: 90%;
+}
+
+.login h3{
+    margin-top: 5%;
+    text-align: center;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 90%;
+    align-items: center;
+}
+
+.loginForm button{
+    background-color: #2a628f;
+    color: #fff8f0;
+}
+
+.loginForm button:hover{
+    cursor: pointer;
+    background-color: #25567e;
+}
+
+.inputButton{
+    margin-top: 10%;
+    width: 90%;
+    height: 15%;
+    border: none;
+    box-shadow: 1px 1px 2px black;
+    outline-color: #2a628f;
+}

@@ -1,0 +1,247 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 7%;
+    background-color: #2a628f;
+    color: #fff8f0;
+    box-shadow: 2px 2px 5px black;
+}
+
+header h3{
+    margin-left: 2%;
+}
+
+header h3:hover{
+    cursor: pointer;
+}
+
+header span{
+    margin-right: 2%;
+}
+
+header span:hover{
+    cursor: pointer;
+}
+
+.menu{
+    width: 100%;
+    height: 93%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* .subMenu{
+    width: 30%;
+} */
+
+.row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
+    width: 60%;
+}
+
+.subRow{
+    display: none;
+    /* width: 30%; */
+    width: 50%;
+}
+
+.opt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 90%;
+    box-shadow: 1px 1px 4px black;
+    border-radius: 5px;
+    color: #2a628f;
+}
+
+i{
+    margin-bottom: 5%;
+}
+
+.opt:hover{
+    cursor: pointer;
+    background-color: #2a628f;
+    color: #fff8f0;
+}
+
+.opt1{
+    width: 40%;
+}
+
+.opt-NotAvalible{
+    visibility: hidden;
+}
+
+.tableBack{
+    width: 100vw;
+    height: 93%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+
+table{
+    margin-top: 2%;
+    border-spacing: 7vh;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 5px;
+}
+
+td{
+    text-align: center;
+}
+
+tr:hover{
+  cursor: pointer;  
+}
+
+.tdNome{
+    text-align: left;
+}
+
+#tBolsista{
+    /* overflow: auto; */
+}
+
+.action{
+    width: 60%;
+    height: 5vh;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 1px 3px black;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+
+.buttons button{
+    width: 42%;
+    box-shadow: 1px 1px 3px black;
+}
+
+.buttons button:hover{
+    cursor: pointer;
+}
+
+.action input, button{
+    border: none;
+    height: 5vh;
+}
+
+.searchName{
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 1px 3px black;
+    width: 40%;
+}
+
+.searchName input{
+    width: 80%;
+    outline: none;
+}
+
+.searchName span{
+    width: 20%;
+    text-align: center;
+    color: #2a628f;
+}
+
+.searchName span:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.backForms{
+    position: absolute;
+    z-index: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 93vh;
+    background-color: rgba(42, 98, 143, .5);
+}
+
+.formAddBolsista{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: 80%;
+    background-color: white;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 5px;
+}
+
+.formAddBolsista input{
+    width: 90%;
+    height: 8%;
+    outline-color: #2a628f;
+    box-shadow: 1px 1px 3px black;
+    border: none;
+}
+
+.formAddBolsista button{
+    width: 90%;
+    height: 8%;
+    border: none;
+    box-shadow: 1px 1px 3px black;
+    outline: none;
+}
+
+.smallForm{
+    height: 50%;
+}
+
+.smallForm input{
+    height: 13%;
+}
+
+.smallForm button{
+    height: 13%;
+}
+
+.smallForm2{
+    height: 40%;
+}
+
+.smallForm2 input{
+    height: 20%;
+}
+
+.smallForm2 button{
+    height: 20%;
+}
+
+.formAddBolsista button:hover{
+    cursor: pointer;
+}
