@@ -27,7 +27,7 @@ function createTableBolsistas(listaDeBolsistas){
         let data = new Date(bolsista.Data_inicio);
         tableHeader3.innerHTML = data.getDate() + '/' + (data.getMonth() + 1) +'/' + data.getFullYear();
         let tableHeader4 = document.createElement('td');
-        tableHeader4.innerHTML = bolsista.CargaHoraria;
+        tableHeader4.innerHTML = formatHour(bolsista.CargaHoraria);
         let tableHeader5 = document.createElement('td');
         tableHeader5.innerHTML = bolsista.FK_IdSetor;
         let tableHeader6 = document.createElement('input');

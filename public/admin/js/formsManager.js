@@ -7,12 +7,14 @@ function hideBform(event){
     if(event.target.id == 'bForms'){
         event.target.style.display = 'none';
         document.getElementById('bForms').style.display ='none';
+        start();
     }
 }
 
 function hideForm(event){
     event.target.parentNode.style.display = 'none';
     document.getElementById('bForms').style.display = 'none';
+    start();
 }
 
 function hideForms(){

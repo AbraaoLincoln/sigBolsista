@@ -17,16 +17,17 @@ function formatDateMysqlAll(listOfDateToFormat){
 function formatHour(hourInt){
     if(hourInt){
         let str = hourInt.toString();
-
         if(str.length == 1){
-            return '0' + ':' + '0' + str[0];
+            return '00' + ':' + '0' + str[0];
         }else if(str.length == 2){
-            return '0' + ':' + str[0] + str[1];
+            return '00' + ':' + str[0] + str[1];
         }else if(str.length == 3){
             return str[0] + ':' + str[1] + str[2];
         }else{
             return str[0] + str[1] + ':' + str[2] + str[3];
         }
+    }else{
+        return '00:00'
     }
 }
 

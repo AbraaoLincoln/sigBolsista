@@ -90,7 +90,7 @@ function deleteAll(){
             deleteUnidade();
             break;
     }
-    
+    start();
 }
 
 function makeListOfAtributes(form){
@@ -168,12 +168,13 @@ function searchName(){
 //Bolsista crud
 
 function salvarNovoBolsista(){
+    console.log(document.getElementById('cargaHBol').value.replace(':', ''))
     let novoBolsista = {
         Id: document.getElementById('cpfBol').value,
         Nome: document.getElementById('nomebol').value,
         Senha: document.getElementById('passBol').value,
         Data_inicio: formatDateMysql(document.getElementById('dataIncBol').value),
-        CargaHoraria: document.getElementById('cargaHBol').value,
+        CargaHoraria: document.getElementById('cargaHBol').value.replace(':', ''),
         FK_IdSetor: document.getElementById('setorBol').value,
     }
 
@@ -186,7 +187,7 @@ function atualizarBolsista(){
         Nome: document.getElementById('updateNomebol').value,
         Senha: document.getElementById('updatePassBol').value,
         Data_inicio: formatDateMysql(document.getElementById('updateDataIncBol').value),
-        CargaHoraria: document.getElementById('updateCargaHBol').value,
+        CargaHoraria: document.getElementById('updateCargaHBol').value.replace(':', ''),
         FK_IdSetor: document.getElementById('updateSetorBol').value,
         IdOld: auxAtr[0]
     }
